@@ -1,3 +1,5 @@
+import {cardButtonsHandler} from "@/HospitalsCards/CardControls";
+
 export function renderHospitalsTable(hospitals) {
 
   const $hospitals = document.createElement('div');
@@ -10,7 +12,11 @@ export function renderHospitalsTable(hospitals) {
     }
   }
 
-  document.querySelector('.container').insertAdjacentElement('beforeend', $hospitals);
+  document.querySelector('.container').insertAdjacentElement('afterbegin', $hospitals);
+
+  $hospitals.querySelectorAll('.card-buttons').forEach(item => {
+    item.addEventListener('click', event => cardButtonsHandler(event));
+  });
 
 }
 

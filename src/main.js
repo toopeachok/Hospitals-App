@@ -3,22 +3,31 @@ import '@/styles/modal.scss'
 import {renderHospitalsTable} from "@/HospitalsCards/RenderHospitals";
 import {getFileData} from "@/GetFileData";
 import {addToLocalStorage} from "@/LocalStorage";
-import {cardButtonsHandler} from "@/HospitalsCards/CardControls";
+import {addHospitalCard} from "@/HospitalsCards/CardControls";
 
 
-let fileURL = '../src/data/lpu.json';
+const getDataFromServerBtn = document.querySelector('#get-data-from-server-btn');
 
-getFileData(fileURL)
-  .then(data => JSON.parse(data))
-  .then(addToLocalStorage)
-  .then(() => {
-    return JSON.parse(localStorage.getItem('hospitals'));
-  })
-  .then(renderHospitalsTable)
-  .then(() => {
-    document.querySelectorAll('.card-buttons').forEach(item => {
-      item.addEventListener('click', event => cardButtonsHandler(event));
-    });
-  })
-  .catch(err => console.log(err));
+getDataFromServerBtn.addEventListener('click', () => {
+
+  let fileURL = '../src/data/lpu.json';
+
+  getFileData(fileURL)
+    .then(data => JSON.parse(data))
+    .then(addToLocalStorage)
+    .then(() => {
+      return JSON.parse(localStorage.getItem('hospitals'));
+    })
+    .then(renderHospitalsTable)
+    .then(() => {
+      const addCardBtn = document.querySelector('#add-hospital-btn');
+      addCardBtn.addEventListener('click', addHospitalCard);
+      addCardBtn.style.display = 'block';
+      getDataFromServerBtn.style.display = 'none';
+    })
+    .catch(err => console.log(err));
+
+});
+
+
 
