@@ -33,7 +33,7 @@ export function cardButtonsHandler(event) {
             <input class="form-control"
             name="hospital-name-input"
             type="text"
-            placeholder="${name}"
+            value="${name}"
             required
             >
           </div>
@@ -44,7 +44,7 @@ export function cardButtonsHandler(event) {
             <input class="form-control"
             name="hospital-address-input"
             type="text"
-            placeholder="${address}"
+            value="${address}"
             required
             >
           </div>
@@ -55,7 +55,7 @@ export function cardButtonsHandler(event) {
             <input class="form-control"
             name="hospital-phone-input"
             type="text"
-            placeholder="${phone}"
+            value="${phone}"
             required
             >
           </div>
