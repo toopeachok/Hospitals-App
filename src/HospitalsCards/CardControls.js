@@ -16,6 +16,12 @@ export function cardButtonsHandler(event) {
 
     const card = document.querySelector(`#card-${id}`);
 
+    const name = card.querySelector('.hospital-name').textContent;
+
+    const address = card.querySelector('.hospital-address').textContent;
+
+    const phone = card.querySelector('.hospital-phone-link').textContent;
+
     const editModal = $.editCardModal({
       title: 'Редактировать',
       content: `
@@ -27,6 +33,7 @@ export function cardButtonsHandler(event) {
             <input class="form-control"
             name="hospital-name-input"
             type="text"
+            placeholder="${name}"
             required
             >
           </div>
@@ -37,6 +44,7 @@ export function cardButtonsHandler(event) {
             <input class="form-control"
             name="hospital-address-input"
             type="text"
+            placeholder="${address}"
             required
             >
           </div>
@@ -47,6 +55,7 @@ export function cardButtonsHandler(event) {
             <input class="form-control"
             name="hospital-phone-input"
             type="text"
+            placeholder="${phone}"
             required
             >
           </div>
