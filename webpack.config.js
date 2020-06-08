@@ -50,7 +50,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     filename: filename('js'),
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'docs'),
   },
   devServer: {
     port: 4200,

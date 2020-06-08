@@ -10,7 +10,7 @@ const getDataFromServerBtn = document.querySelector('#get-data-from-server-btn')
 
 getDataFromServerBtn.addEventListener('click', () => {
 
-  let fileURL = '../src/data/lpu.json';
+  let fileURL = './data/lpu.json';
 
   getFileData(fileURL)
     .then(data => JSON.parse(data))
