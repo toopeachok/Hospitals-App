@@ -46,6 +46,8 @@
 
 .modal-window {
   width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
   border-radius: 5px;
   background: #ffffff;
   margin: 0 auto;
